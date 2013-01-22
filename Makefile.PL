@@ -1,22 +1,17 @@
-use inc::Module::Install;
-name 'Term-SimpleColor';
+use strict;
+use warnings;
+use ExtUtils::MakeMaker;
 
-all_from 'lib/Term/SimpleColor.pm';
-
-requires 'strict';
-requires 'warnings';
-requires 'utf8';
-requires 'Carp';
-
-tests 't/*.t';
-author_tests 'xt';
-
-test_requires 'Test::More';
-test_requires 'Test::MockObject';
-test_requires 'strict';
-test_requires 'warnings';
-test_requires 'utf8';
-
-auto_set_repository;
-auto_include;
-WriteAll;
+WriteMakefile(
+    NAME                => 'Term::SimpleColor',
+    AUTHOR              => 'Takashi Uesugi <tksuesg@gmail.com>',
+    VERSION_FROM        => 'lib/Term/SimpleColor.pm',
+    ABSTRACT_FROM       => 'lib/Term/SimpleColor.pm',
+    PL_FILES            => {},
+    PREREQ_PM => {
+        'Test::More' => 0,
+        'version'    => 0,
+    },
+    dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
+    clean               => { FILES => 'Term-SimpleColor-*' },
+);
