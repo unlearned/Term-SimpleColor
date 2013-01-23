@@ -3,7 +3,7 @@ use warnings;
 use utf8;
 use Test::More;
 
-use Term::SimpleColor qw(bg_default bg_black bg_red bg_green bg_yellow bg_blue bg_magenta bg_cyan bg_gray);
+use Term::SimpleColor qw(:all);
 
 my %COLOR = (
     bg_black  => "\x1b[40m",

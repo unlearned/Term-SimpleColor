@@ -17,7 +17,7 @@
 #     CONFIGURE_REQUIRES => {  }
 #     NAME => q[Term::SimpleColor]
 #     PL_FILES => {  }
-#     PREREQ_PM => { Test::More=>q[0], version=>q[0] }
+#     PREREQ_PM => { warnings=>q[0], base=>q[0], Test::Pod::Coverage=>q[1.04], version=>q[0], utf8=>q[0], Carp=>q[0], Test::Pod=>q[1.14], Test::Perl::Critic=>q[0], Test::More=>q[0], strict=>q[0] }
 #     TEST_REQUIRES => {  }
 #     VERSION_FROM => q[lib/Term/SimpleColor.pm]
 #     clean => { FILES=>q[Term-SimpleColor-*] }
@@ -60,11 +60,11 @@ DIRFILESEP = /
 DFSEP = $(DIRFILESEP)
 NAME = Term::SimpleColor
 NAME_SYM = Term_SimpleColor
-VERSION = undef
+VERSION = 0.0.1
 VERSION_MACRO = VERSION
-VERSION_SYM = undef
+VERSION_SYM = 0_0_1
 DEFINE_VERSION = -D$(VERSION_MACRO)=\"$(VERSION)\"
-XS_VERSION = undef
+XS_VERSION = 0.0.1
 XS_VERSION_MACRO = XS_VERSION
 XS_DEFINE_VERSION = -D$(XS_VERSION_MACRO)=\"$(XS_VERSION)\"
 INST_ARCHLIB = blib/arch
@@ -258,7 +258,7 @@ RCS_LABEL = rcs -Nv$(VERSION_SYM): -q
 DIST_CP = best
 DIST_DEFAULT = tardist
 DISTNAME = Term-SimpleColor
-DISTVNAME = Term-SimpleColor-undef
+DISTVNAME = Term-SimpleColor-0.0.1
 
 
 # --- MakeMaker macro section:
@@ -479,7 +479,7 @@ realclean purge ::  clean realclean_subdirs
 metafile : create_distdir
 	$(NOECHO) $(ECHO) Generating META.yml
 	$(NOECHO) $(ECHO) '---' > META_new.yml
-	$(NOECHO) $(ECHO) 'abstract: unknown' >> META_new.yml
+	$(NOECHO) $(ECHO) 'abstract: '\''A very simple color screen output'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) 'author:' >> META_new.yml
 	$(NOECHO) $(ECHO) '  - '\''Takashi Uesugi <tksuesg@gmail.com>'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) 'build_requires:' >> META_new.yml
@@ -498,13 +498,21 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '    - t' >> META_new.yml
 	$(NOECHO) $(ECHO) '    - inc' >> META_new.yml
 	$(NOECHO) $(ECHO) 'requires:' >> META_new.yml
+	$(NOECHO) $(ECHO) '  Carp: 0' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Test::More: 0' >> META_new.yml
+	$(NOECHO) $(ECHO) '  Test::Perl::Critic: 0' >> META_new.yml
+	$(NOECHO) $(ECHO) '  Test::Pod: 1.14' >> META_new.yml
+	$(NOECHO) $(ECHO) '  Test::Pod::Coverage: 1.04' >> META_new.yml
+	$(NOECHO) $(ECHO) '  base: 0' >> META_new.yml
+	$(NOECHO) $(ECHO) '  strict: 0' >> META_new.yml
+	$(NOECHO) $(ECHO) '  utf8: 0' >> META_new.yml
 	$(NOECHO) $(ECHO) '  version: 0' >> META_new.yml
-	$(NOECHO) $(ECHO) 'version: '\'''\''' >> META_new.yml
+	$(NOECHO) $(ECHO) '  warnings: 0' >> META_new.yml
+	$(NOECHO) $(ECHO) 'version: v0.0.1' >> META_new.yml
 	-$(NOECHO) $(MV) META_new.yml $(DISTVNAME)/META.yml
 	$(NOECHO) $(ECHO) Generating META.json
 	$(NOECHO) $(ECHO) '{' > META_new.json
-	$(NOECHO) $(ECHO) '   "abstract" : "unknown",' >> META_new.json
+	$(NOECHO) $(ECHO) '   "abstract" : "A very simple color screen output",' >> META_new.json
 	$(NOECHO) $(ECHO) '   "author" : [' >> META_new.json
 	$(NOECHO) $(ECHO) '      "Takashi Uesugi <tksuesg@gmail.com>"' >> META_new.json
 	$(NOECHO) $(ECHO) '   ],' >> META_new.json
@@ -537,13 +545,21 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '      },' >> META_new.json
 	$(NOECHO) $(ECHO) '      "runtime" : {' >> META_new.json
 	$(NOECHO) $(ECHO) '         "requires" : {' >> META_new.json
+	$(NOECHO) $(ECHO) '            "Carp" : 0,' >> META_new.json
 	$(NOECHO) $(ECHO) '            "Test::More" : 0,' >> META_new.json
-	$(NOECHO) $(ECHO) '            "version" : 0' >> META_new.json
+	$(NOECHO) $(ECHO) '            "Test::Perl::Critic" : 0,' >> META_new.json
+	$(NOECHO) $(ECHO) '            "Test::Pod" : "1.14",' >> META_new.json
+	$(NOECHO) $(ECHO) '            "Test::Pod::Coverage" : "1.04",' >> META_new.json
+	$(NOECHO) $(ECHO) '            "base" : 0,' >> META_new.json
+	$(NOECHO) $(ECHO) '            "strict" : 0,' >> META_new.json
+	$(NOECHO) $(ECHO) '            "utf8" : 0,' >> META_new.json
+	$(NOECHO) $(ECHO) '            "version" : 0,' >> META_new.json
+	$(NOECHO) $(ECHO) '            "warnings" : 0' >> META_new.json
 	$(NOECHO) $(ECHO) '         }' >> META_new.json
 	$(NOECHO) $(ECHO) '      }' >> META_new.json
 	$(NOECHO) $(ECHO) '   },' >> META_new.json
 	$(NOECHO) $(ECHO) '   "release_status" : "stable",' >> META_new.json
-	$(NOECHO) $(ECHO) '   "version" : ""' >> META_new.json
+	$(NOECHO) $(ECHO) '   "version" : "v0.0.1"' >> META_new.json
 	$(NOECHO) $(ECHO) '}' >> META_new.json
 	-$(NOECHO) $(MV) META_new.json $(DISTVNAME)/META.json
 
@@ -840,11 +856,19 @@ testdb_static :: testdb_dynamic
 # Creates a PPD (Perl Package Description) for a binary distribution.
 ppd :
 	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="$(VERSION)">' > $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '    <ABSTRACT></ABSTRACT>' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '    <ABSTRACT>A very simple color screen output</ABSTRACT>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <AUTHOR>Takashi Uesugi &lt;tksuesg@gmail.com&gt;</AUTHOR>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <IMPLEMENTATION>' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Carp::" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Test::More" />' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Test::Perl::Critic" />' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Test::Pod" VERSION="1.14" />' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Test::Pod::Coverage" VERSION="1.04" />' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="base::" />' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="strict::" />' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="utf8::" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="version::" />' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="warnings::" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="darwin-thread-multi-2level-5.12" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <CODEBASE HREF="" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    </IMPLEMENTATION>' >> $(DISTNAME).ppd

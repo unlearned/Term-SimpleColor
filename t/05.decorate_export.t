@@ -2,8 +2,6 @@ use strict;
 use warnings;
 use utf8;
 use Test::More;
-use Test::Deep;
-use Test::Exception;
 
 use Term::SimpleColor qw(underscore bold invert dc_default);
 

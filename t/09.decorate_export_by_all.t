@@ -3,7 +3,7 @@ use warnings;
 use utf8;
 use Test::More;
 
-use Term::SimpleColor;
+use Term::SimpleColor qw(:all);
 
 my %COLOR = (
     underscore => "\x1b[4m",
@@ -16,9 +16,7 @@ for my $color (keys(%COLOR)) {
 
     subtest $color => sub {
 
-	my $method = 'Term::SimpleColor::' . $color;
-
-        my $result = eval("\&$method()");
+        my $result = eval("\&$color()");
         my $ideal  = $COLOR{$color};
 
         is( $result, $ideal );
@@ -28,10 +26,8 @@ for my $color (keys(%COLOR)) {
 
     subtest $color . " with a string paramater" => sub {
 
-	my $method = 'Term::SimpleColor::' . $color;
-
 	my $test_str = 'string';
-        my $result = eval("\&$method( \$test_str )");
+        my $result = eval("\&$color( \$test_str )");
         my $ideal  = $COLOR{$color} . $test_str . $COLOR{'dc_default'};
 
         is( $result, $ideal );

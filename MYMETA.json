@@ -1,5 +1,5 @@
 {
-   "abstract" : "unknown",
+   "abstract" : "A very simple color screen output",
    "author" : [
       "Takashi Uesugi <tksuesg@gmail.com>"
    ],
@@ -32,11 +32,19 @@
       },
       "runtime" : {
          "requires" : {
+            "Carp" : 0,
             "Test::More" : 0,
-            "version" : 0
+            "Test::Perl::Critic" : 0,
+            "Test::Pod" : "1.14",
+            "Test::Pod::Coverage" : "1.04",
+            "base" : 0,
+            "strict" : 0,
+            "utf8" : 0,
+            "version" : 0,
+            "warnings" : 0
          }
       }
    },
    "release_status" : "stable",
-   "version" : ""
+   "version" : "v0.0.1"
 }
