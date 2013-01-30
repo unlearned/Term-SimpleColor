@@ -4,9 +4,10 @@ use Module::Build;
 
 my $builder = Module::Build->new(
     module_name         => 'Term::SimpleColor',
-    license             => 'artistic2',
+    license             => 'artistic',
     dist_author         => 'Takashi Uesugi <tksuesg@gmail.com>',
     dist_version_from   => 'lib/Term/SimpleColor.pm',
+    dist_abstract       => 'UNLEARNED',
     requires => {
         'Test::More' => 0,
         'version'    => 0,

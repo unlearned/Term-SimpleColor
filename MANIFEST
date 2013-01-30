@@ -19,3 +19,8 @@ t/perlcritic.t
 t/pod-coverage.t
 t/pod.t
 
+META.yml
+
+.shipit
+MYMETA.json
+
