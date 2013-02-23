@@ -124,7 +124,7 @@
 .\" ========================================================================
 .\"
 .IX Title "Term::SimpleColor 3"
-.TH Term::SimpleColor 3 "2013-01-24" "perl v5.12.4" "User Contributed Perl Documentation"
+.TH Term::SimpleColor 3 "2013-02-23" "perl v5.12.4" "User Contributed Perl Documentation"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -144,7 +144,7 @@ Term::SimpleColor \- A very simple color screen output
 \&
 \&
 \&    # backgroud color
-\&    use Term::SimpleColor qw(background);
+\&    use Term::SimpleColor qw(:background);
 \&    print bg_red "a line on red background\en";
 \&
 \&    print bg_green;
@@ -154,7 +154,7 @@ Term::SimpleColor \- A very simple color screen output
 \&
 \&
 \&    # text decoration
-\&    use Term::SimpleColor qw(decorate);
+\&    use Term::SimpleColor qw(:decorate);
 \&    print underscore "a line with underscore\en";
 \&
 \&    print invert;
@@ -366,3 +366,4 @@ Takashi Uesugi <tksuesg@gmail.com>
 .SS "\s-1COPYRIGHT\s0 \s-1AND\s0 \s-1LICENCE\s0"
 .IX Subsection "COPYRIGHT AND LICENCE"
 Copyright (C) 2013 by Takashi Uesugi
+This library is free software; you can redistribute it and/or modify it under the same terms as Perl itself.

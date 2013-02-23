@@ -6,7 +6,7 @@ use utf8;
 use Carp;
 use base 'Exporter';
 
-our $VERSION = '0.0.2';
+our $VERSION = '0.0.3';
 
 our @EXPORT = qw/ black red green yellow blue magenta cyan gray white default /;
 our @EXPORT_OK =

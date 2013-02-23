@@ -6,6 +6,7 @@ pm_to_blib
 ^\.prove$
 ^ignore\.txt$
 ^Makefile$
+^Makefile.old$
 ^MANIFEST\.
 \.tar\.gz
 \.lwpcookies
@@ -13,3 +14,11 @@ cover_db
 WebService-Bitly-
 \.shipit.*
 ^MYMETA.yml$
+^t/perlcritic\.t$
+^t/pod-coverage\.t$
+^t/pod\.t$
+^_build/
+^Build$
+^MANIFEST$
+
+

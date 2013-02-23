@@ -2,7 +2,8 @@ Build.PL
 Changes
 lib/Term/SimpleColor.pm
 Makefile.PL
-MANIFEST			This list of files
+META.yml
+MYMETA.json
 README
 README.md
 t/00.load.t
@@ -15,12 +16,3 @@ t/06.background_color_export_by_tag.t
 t/07.decorate_export_by_tag.t
 t/08.background_color_export_by_all.t
 t/09.decorate_export_by_all.t
-t/perlcritic.t
-t/pod-coverage.t
-t/pod.t
-
-META.yml
-
-.shipit
-MYMETA.json
-

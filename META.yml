@@ -13,10 +13,10 @@ name: Term-SimpleColor
 provides:
   Term::SimpleColor:
     file: lib/Term/SimpleColor.pm
-    version: v0.0.2
+    version: v0.0.3
 requires:
   Test::More: 0
   version: 0
 resources:
   license: http://opensource.org/licenses/artistic-license.php
-version: v0.0.2
+version: v0.0.3

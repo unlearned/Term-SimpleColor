@@ -6,7 +6,7 @@ use utf8;
 use Carp;
 use base 'Exporter';
 
-our $VERSION = '0.0.1';
+our $VERSION = '0.0.3';
 
 our @EXPORT = qw/ black red green yellow blue magenta cyan gray white default /;
 our @EXPORT_OK =
@@ -252,7 +252,7 @@ Term::SimpleColor - A very simple color screen output
 
 
     # backgroud color
-    use Term::SimpleColor qw(background);
+    use Term::SimpleColor qw(:background);
     print bg_red "a line on red background\n";
 
     print bg_green;
@@ -262,7 +262,7 @@ Term::SimpleColor - A very simple color screen output
 
 
     # text decoration
-    use Term::SimpleColor qw(decorate);
+    use Term::SimpleColor qw(:decorate);
     print underscore "a line with underscore\n";
 
     print invert;
@@ -440,6 +440,7 @@ Takashi Uesugi <tksuesg@gmail.com>
 =head2 COPYRIGHT AND LICENCE
 
 Copyright (C) 2013 by Takashi Uesugi
+This library is free software; you can redistribute it and/or modify it under the same terms as Perl itself.
 
 =cut
 
